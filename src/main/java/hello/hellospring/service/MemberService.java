@@ -30,6 +30,21 @@ public class MemberService {
         validateDuplicateMember(member); //중복 회원 검증
         memberRepository.save(member);
         return member.getId();
+
+//        //AOP 가 없을 경우
+//        long start = System.currentTimeMillis();
+//
+//        try {
+//            validateDuplicateMember(member); //중복 회원 검증
+//            memberRepository.save(member);
+//
+//            return member.getId();
+//        } finally {
+//            long finish = System.currentTimeMillis();
+//            long timeMs = finish - start;
+//
+//            System.out.println("join " + timeMs + "ms");
+//        }
     }
 
     private void validateDuplicateMember(Member member) {
